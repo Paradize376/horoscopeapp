@@ -38,7 +38,7 @@ class IndexPage extends StatelessWidget {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: NetworkImage(
-                              'https://picsum.photos/id/100/200/200', //รอใส่รูป
+                              'https://picsum.photos/id/100/200/200', //รอสร้างไฟล์ใส่รูป
                             ),
                             fit: BoxFit.cover,
                           ),

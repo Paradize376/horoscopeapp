@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Heardnavbar extends StatelessWidget implements PreferredSizeWidget {
-  final String title; // รับ title เพื่อให้สามารถเปลี่ยน title ได้ตามแต่ละหน้า
+  final String title; // รับ title เพื่อให้สามารถเปลี่ยน title ได้ของแต่ละหน้า
 
   const Heardnavbar({super.key, required this.title});
 
