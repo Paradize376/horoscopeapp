@@ -22,7 +22,7 @@ class _HeadnavbarState extends State<Headnavbar> {
   final List<Widget> _screens = [
     Homepage(),
     ZodiacPredictionPage(),
-    // DailyHoroscopePage(),
+    DailyHoroscopePage(),
   ];
 
   // ฟังก์ชันเปลี่ยนแท็บ

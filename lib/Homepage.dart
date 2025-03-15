@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horoscopeapp/headnavbar.dart';
-import 'package:horoscopeapp/zodiac.dart';
+
 
 class Homepage extends StatelessWidget {
   @override
@@ -46,7 +46,7 @@ class Homepage extends StatelessWidget {
                 // Option 2: Daily Horoscope
                 InkWell(
                   onTap: () {
-                    // TODO: Navigate to daily horoscope page
+                    Headnavbar.of(context)?.changeTab(2);
                   },
                   child: Column(
                     children: [
