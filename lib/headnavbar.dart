@@ -22,7 +22,7 @@ class _HeadnavbarState extends State<Headnavbar> {
   final List<Widget> _screens = [
     Homepage(),
     ZodiacPredictionPage(),
-    DailyHoroscopePage(),
+    // DailyHoroscopePage(),
   ];
 
   // ฟังก์ชันเปลี่ยนแท็บ
@@ -36,7 +36,10 @@ class _HeadnavbarState extends State<Headnavbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_titles[_selectedIndex]),
+        title: Text(
+          _titles[_selectedIndex],
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         backgroundColor: const Color(0xFF3B1F86),
         shape: const RoundedRectangleBorder(
@@ -53,7 +56,10 @@ class _HeadnavbarState extends State<Headnavbar> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าหลัก'),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: 'ทำนายราศี'),
-          BottomNavigationBarItem(icon: Icon(Icons.remove_red_eye), label: 'ดูดวงรายวัน'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.remove_red_eye),
+            label: 'ดูดวงรายวัน',
+          ),
         ],
       ),
     );
