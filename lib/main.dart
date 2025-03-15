@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'heardnavbar.dart';
+import 'headnavbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Heardnavbar(), // ต้องเป็น widget ที่ใช้ Navigator ได้
+      home: Headnavbar(), // ต้องเป็น widget ที่ใช้ Navigator ได้
     );
   }
 }
