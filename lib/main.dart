@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'index.dart';  
+import 'heardnavbar.dart';
+
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: IndexPage(),  // เรียกใช้งานหน้า IndexPage
+      debugShowCheckedModeBanner: false,
+      home: Heardnavbar(), // ต้องเป็น widget ที่ใช้ Navigator ได้
     );
   }
 }

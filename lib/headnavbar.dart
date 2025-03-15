@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:horoscopeapp/zodiac_prediction_page.dart';
 import 'homepage.dart';
-import 'zodiac.dart';
 
-class Heardnavbar extends StatefulWidget {
-  const Heardnavbar({super.key});
+class Headnavbar extends StatefulWidget {
+  const Headnavbar({super.key});
 
   @override
-  State<Heardnavbar> createState() => _HeardnavbarState();
+  State<Headnavbar> createState() => _HeadnavbarState();
 
   // ให้ Homepage ใช้ changeTab()
-  static _HeardnavbarState? of(BuildContext context) {
-    return context.findAncestorStateOfType<_HeardnavbarState>();
+  static _HeadnavbarState? of(BuildContext context) {
+    return context.findAncestorStateOfType<_HeadnavbarState>();
   }
 }
 
-class _HeardnavbarState extends State<Heardnavbar> {
+class _HeadnavbarState extends State<Headnavbar> {
   int _selectedIndex = 0; // เก็บค่าหน้าปัจจุบัน
 
   final List<String> _titles = ['หน้าหลัก', 'ทำนายราศี', 'ดูดวงรายวัน'];

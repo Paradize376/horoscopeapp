@@ -1,33 +1,26 @@
 import 'package:flutter/material.dart';
-import 'heardnavbar.dart';
+import 'package:horoscopeapp/heardnavbar.dart';
 
 class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Heardnavbar(title: 'หน้าหลัก'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child: Column(
           children: [
             Text(
               'เลือกการทำนาย',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 120),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                // อันที่ 1 (รูป + ข้อความ กดได้พร้อมกัน)
+                // Option 1: ไปหาทำนายราศี
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Homepage()), // ไปหน้าทำนายราศี
-                    );
+                    Heardnavbar.of(context)?.changeTab(1);
                   },
                   child: Column(
                     children: [
@@ -38,7 +31,7 @@ class Homepage extends StatelessWidget {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: NetworkImage(
-                              'https://picsum.photos/id/100/200/200', //รอสร้างไฟล์ใส่รูป
+                              'https://picsum.photos/id/100/200/200', // Placeholder image
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -49,13 +42,10 @@ class Homepage extends StatelessWidget {
                     ],
                   ),
                 ),
-                // อันที่ 2 (รูป + ข้อความ กดได้พร้อมกัน)
+                // Option 2: ไปหน้าดูดวงรายวัน
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Homepage()), // ไปหน้าทำดูดวงวันนี้
-                    );
+                    // TODO: Navigate to daily horoscope page
                   },
                   child: Column(
                     children: [
@@ -66,7 +56,7 @@ class Homepage extends StatelessWidget {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: NetworkImage(
-                              'https://picsum.photos/id/200/200/200', //รอใส่รูป
+                              'https://picsum.photos/id/200/200/200', // Placeholder image
                             ),
                             fit: BoxFit.cover,
                           ),

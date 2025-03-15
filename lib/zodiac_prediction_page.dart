@@ -51,12 +51,7 @@ class _ZodiacPredictionPageState extends State<ZodiacPredictionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ทำนายราศี', style: TextStyle(color: Colors.white)),
-        backgroundColor: const Color(0xFF5A3E9D),
-      ),
-      body: Center(
+    return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -233,29 +228,6 @@ class _ZodiacPredictionPageState extends State<ZodiacPredictionPage> {
             ),
           ],
         ),
-      ),
-      // Footer โดยใช้ BottomNavigationBar
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
-        backgroundColor: Color(0xFF5A3E9D),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
-            label: 'หน้าหลัก',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star, color: Colors.white),
-            label: 'ราศี',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.remove_red_eye, color: Colors.white),
-            label: 'ดูดวงรายวัน',
-          ),
-        ],
-      ),
-    );
+      );
   }
 }
