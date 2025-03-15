@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:horoscopeapp/heardnavbar.dart';
+import 'package:horoscopeapp/headnavbar.dart';
+import 'package:horoscopeapp/zodiac.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class Homepage extends StatelessWidget {
                 // Option 1: ไปหาทำนายราศี
                 InkWell(
                   onTap: () {
-                    Heardnavbar.of(context)?.changeTab(1);
+                    Headnavbar.of(context)?.changeTab(1);
                   },
                   child: Column(
                     children: [
@@ -42,7 +43,7 @@ class Homepage extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Option 2: ไปหน้าดูดวงรายวัน
+                // Option 2: Daily Horoscope
                 InkWell(
                   onTap: () {
                     // TODO: Navigate to daily horoscope page
