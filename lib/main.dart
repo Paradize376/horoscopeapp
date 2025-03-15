@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: IndexPage(),  // เรียกใช้งาน IndexPage
+      home: IndexPage(),  // เรียกใช้งานหน้า IndexPage
     );
   }
 }

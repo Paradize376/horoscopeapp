@@ -15,7 +15,7 @@ class Heardnavbar extends StatelessWidget implements PreferredSizeWidget {
             style: TextStyle(
               color: Colors.white,
               fontSize: 25,
-              fontFamily: '',
+              fontFamily: '', //รอใส่ฟอน
             ),
           ),
           centerTitle: true,
