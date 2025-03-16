@@ -12,7 +12,7 @@ class Homepage extends StatelessWidget {
           children: [
             Text(
               'เลือกการทำนาย',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold ,),
             ),
             const SizedBox(height: 120),
             Row(

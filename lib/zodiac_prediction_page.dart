@@ -52,163 +52,181 @@ class _ZodiacPredictionPageState extends State<ZodiacPredictionPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // กล่อง Container ที่ห่อ Form โดยไม่รวมปุ่ม ElevatedButton
-            Container(
-              width: 350,
-              padding: const EdgeInsets.all(16.0),
-              color: const Color(0xFF9BCDDF),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Name Input
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'ชื่อ',
-                        filled: true,
-                        fillColor: Colors.amber[100],
-                      ),
-                      onChanged: (value) {
-                        setState(() {
-                          _name = value;
-                        });
-                      },
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'กรุณากรอกชื่อของคุณ';
-                        }
-                        return null;
-                      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // กล่อง Container ที่ห่อ Form โดยไม่รวมปุ่ม ElevatedButton
+          Container(
+            width: 350,
+            padding: const EdgeInsets.all(16.0),
+            color: const Color(0xFF9BCDDF),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Name Input
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'ชื่อ',
+                      filled: true,
+                      fillColor: Colors.amber[100],
                     ),
-                    const SizedBox(height: 20),
+                    onChanged: (value) {
+                      setState(() {
+                        _name = value;
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'กรุณากรอกชื่อของคุณ';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
 
-                    // Date Input
-                    const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('วัน/เดือน/ปี'),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: buildDropdownButton(
-                            hintText: 'วัน',
-                            value: _day,
-                            items: List.generate(31, (index) => index + 1)
-                                .map((day) => DropdownMenuItem(
+                  // Date Input
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('วัน/เดือน/ปี'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: buildDropdownButton(
+                          hintText: 'วัน',
+                          value: _day,
+                          items:
+                              List.generate(31, (index) => index + 1)
+                                  .map(
+                                    (day) => DropdownMenuItem(
                                       value: day,
                                       child: Text(day.toString()),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                _day = value;
-                              });
-                            },
-                          ),
+                                    ),
+                                  )
+                                  .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _day = value;
+                            });
+                          },
                         ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: buildDropdownButton(
-                            hintText: 'เดือน',
-                            value: _month,
-                            items: List.generate(12, (index) => index + 1)
-                                .map((month) => DropdownMenuItem(
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: buildDropdownButton(
+                          hintText: 'เดือน',
+                          value: _month,
+                          items:
+                              List.generate(12, (index) => index + 1)
+                                  .map(
+                                    (month) => DropdownMenuItem(
                                       value: month,
                                       child: Text(month.toString()),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                _month = value;
-                              });
-                            },
-                          ),
+                                    ),
+                                  )
+                                  .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _month = value;
+                            });
+                          },
                         ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: buildDropdownButton(
-                            hintText: 'ปี',
-                            value: _year,
-                            items: List.generate(
-                                    100, (index) => DateTime.now().year - index)
-                                .map((year) => DropdownMenuItem(
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: buildDropdownButton(
+                          hintText: 'ปี',
+                          value: _year,
+                          items:
+                              List.generate(
+                                    100,
+                                    (index) => DateTime.now().year - index,
+                                  )
+                                  .map(
+                                    (year) => DropdownMenuItem(
                                       value: year,
                                       child: Text(year.toString()),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                _year = value;
-                              });
-                            },
-                          ),
+                                    ),
+                                  )
+                                  .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _year = value;
+                            });
+                          },
                         ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
 
-                    // Time Input
-                    const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('เวลาเกิด'),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: buildDropdownButton(
-                            hintText: 'ชั่วโมง',
-                            value: _hour,
-                            items: List.generate(24, (index) => index)
-                                .map((hour) => DropdownMenuItem(
+                  // Time Input
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('เวลาเกิด'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: buildDropdownButton(
+                          hintText: 'ชั่วโมง',
+                          value: _hour,
+                          items:
+                              List.generate(24, (index) => index)
+                                  .map(
+                                    (hour) => DropdownMenuItem(
                                       value: hour,
                                       child: Text(hour.toString()),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                _hour = value;
-                              });
-                            },
-                          ),
+                                    ),
+                                  )
+                                  .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _hour = value;
+                            });
+                          },
                         ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: buildDropdownButton(
-                            hintText: 'นาที',
-                            value: _minute,
-                            items: List.generate(60, (index) => index)
-                                .map((minute) => DropdownMenuItem(
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: buildDropdownButton(
+                          hintText: 'นาที',
+                          value: _minute,
+                          items:
+                              List.generate(60, (index) => index)
+                                  .map(
+                                    (minute) => DropdownMenuItem(
                                       value: minute,
                                       child: Text(minute.toString()),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                _minute = value;
-                              });
-                            },
-                          ),
+                                    ),
+                                  )
+                                  .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _minute = value;
+                            });
+                          },
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 10),
-            // ปุ่ม ElevatedButton วางนอกกล่อง Container และจัดให้อยู่ฝั่งขวาสุด
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+          ),
+          const SizedBox(height: 10),
+          // ปุ่ม ElevatedButton วางนอกกล่อง Container และจัดให้อยู่ฝั่งขวาสุด
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
+                Container(
                   padding: const EdgeInsets.only(
-                      right: 60.0), // ปรับค่า padding ตามที่ต้องการ
+                  ), // ปรับค่า padding ตามที่ต้องการ
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -218,7 +236,7 @@ class _ZodiacPredictionPageState extends State<ZodiacPredictionPage> {
                         );
                       }
                     },
-                    child: const Text('ทำนาย'),
+                    child: Text('ทำนาย', textAlign: TextAlign.center , style: TextStyle(color: Colors.black),),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromRGBO(189, 218, 170, 1),
                     ),
@@ -226,8 +244,10 @@ class _ZodiacPredictionPageState extends State<ZodiacPredictionPage> {
                 ),
               ],
             ),
-          ],
-        ),
-      );
+          ),
+
+        ],
+      ),
+    );
   }
 }

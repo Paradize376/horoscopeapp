@@ -22,7 +22,7 @@ class _HeadnavbarState extends State<Headnavbar> {
   final List<Widget> _screens = [
     Homepage(),
     ZodiacPredictionPage(),
-    DailyHoroscopePage(),
+    // DailyHoroscopePage(),
   ];
 
   // ฟังก์ชันเปลี่ยนแท็บ
@@ -36,7 +36,7 @@ class _HeadnavbarState extends State<Headnavbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_titles[_selectedIndex]),
+        title: Text(_titles[_selectedIndex] ,style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),),
         centerTitle: true,
         backgroundColor: const Color(0xFF3B1F86),
         shape: const RoundedRectangleBorder(
