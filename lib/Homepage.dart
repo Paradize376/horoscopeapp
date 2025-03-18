@@ -7,7 +7,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 32),
         child: Column(
           children: [
             Text(
@@ -32,7 +32,7 @@ class Homepage extends StatelessWidget {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: NetworkImage(
-                              'https://picsum.photos/id/100/200/200', // Placeholder image
+                              'homepage/zodiac.jpg', // Placeholder image
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -56,8 +56,8 @@ class Homepage extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                            image: NetworkImage(
-                              'https://picsum.photos/id/200/200/200', // Placeholder image
+                            image: AssetImage(
+                              'homepage/daily.jpg', // Placeholder image
                             ),
                             fit: BoxFit.cover,
                           ),
