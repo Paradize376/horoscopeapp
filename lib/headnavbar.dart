@@ -22,18 +22,6 @@ class _HeadnavbarState extends State<Headnavbar> {
 
   // ชื่อหัวข้อของแต่ละหน้า
   final List<String> _titles = ['หน้าหลัก', 'ทำนายราศี', 'ดูดวงรายวัน'];
-  // final List<Widget> _baseScreens = [
-  //   Homepage(),
-  //   ZodiacPredictionPage(),
-  //   // DailyHoroscopePage(),
-  // ];
-
-  // เพิ่มเมธอดแสดงผลลัพธ์ในแท็บเดิม
-  // void showPredictionResult(Map<String, dynamic> data) {
-  //   setState(() {
-  //     _predictionData = data;
-  //   });
-  // }
 
   // รายการหน้าที่จะสลับ
   final List<Widget> _screens = [
@@ -42,13 +30,6 @@ class _HeadnavbarState extends State<Headnavbar> {
     // DailyHoroscopePage(), // เพิ่มหน้า ดูดวงรายวัน
   ];
 
-  // void handlePredictionResult(Map<String, dynamic> data) {
-  //   setState(() {
-  //     _predictionData = data;
-  //     _selectedIndex = 2;
-  //   });
-  // }
-
   // ฟังก์ชันเปลี่ยนแท็บ
   void changeTab(int index) {
     if (index >= 0 && index < _screens.length) {
@@ -56,8 +37,6 @@ class _HeadnavbarState extends State<Headnavbar> {
         _selectedIndex = index;
       });
     }
-    // if (index == 2 && _predictionData == null) return;
-    // setState(() => _selectedIndex = index);
   }
 
   @override
