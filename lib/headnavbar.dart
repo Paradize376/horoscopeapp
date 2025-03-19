@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:horoscopeapp/zodiac_prediction_page.dart';
+import 'zodiac_prediction_page.dart';
+import 'result_prediction_page.dart';
 import 'homepage.dart';
 
 class Headnavbar extends StatefulWidget {
@@ -8,28 +9,55 @@ class Headnavbar extends StatefulWidget {
   @override
   State<Headnavbar> createState() => _HeadnavbarState();
 
-  // ให้ Homepage ใช้ changeTab()
+  // ฟังก์ชันให้หน้าอื่นเรียก changeTab() ได้
+  // ignore: library_private_types_in_public_api
   static _HeadnavbarState? of(BuildContext context) {
     return context.findAncestorStateOfType<_HeadnavbarState>();
   }
 }
 
 class _HeadnavbarState extends State<Headnavbar> {
-  int _selectedIndex = 0; // เก็บค่าหน้าปัจจุบัน
+  int _selectedIndex = 0;
+  Map<String, dynamic>? _predictionData;
 
+  // ชื่อหัวข้อของแต่ละหน้า
   final List<String> _titles = ['หน้าหลัก', 'ทำนายราศี', 'ดูดวงรายวัน'];
+  // final List<Widget> _baseScreens = [
+  //   Homepage(),
+  //   ZodiacPredictionPage(),
+  //   // DailyHoroscopePage(),
+  // ];
 
+  // เพิ่มเมธอดแสดงผลลัพธ์ในแท็บเดิม
+  // void showPredictionResult(Map<String, dynamic> data) {
+  //   setState(() {
+  //     _predictionData = data;
+  //   });
+  // }
+
+  // รายการหน้าที่จะสลับ
   final List<Widget> _screens = [
     Homepage(),
     ZodiacPredictionPage(),
-    // DailyHoroscopePage(),
+    // DailyHoroscopePage(), // เพิ่มหน้า ดูดวงรายวัน
   ];
+
+  // void handlePredictionResult(Map<String, dynamic> data) {
+  //   setState(() {
+  //     _predictionData = data;
+  //     _selectedIndex = 2;
+  //   });
+  // }
 
   // ฟังก์ชันเปลี่ยนแท็บ
   void changeTab(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    if (index >= 0 && index < _screens.length) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+    // if (index == 2 && _predictionData == null) return;
+    // setState(() => _selectedIndex = index);
   }
 
   @override
@@ -46,10 +74,12 @@ class _HeadnavbarState extends State<Headnavbar> {
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
         ),
       ),
-      body: _screens[_selectedIndex],
+      body: SafeArea(
+        child: _screens[_selectedIndex],
+      ), // ป้องกัน UI ชนกับ Status Bar
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        onTap: changeTab, // ใช้ changeTab() เพื่อเปลี่ยนหน้า
+        onTap: changeTab, // เปลี่ยนหน้าเมื่อกดปุ่ม
         backgroundColor: const Color(0xFF3B1F86),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
