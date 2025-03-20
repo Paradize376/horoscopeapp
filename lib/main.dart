@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Headnavbar(), // ต้องเป็น widget ที่ใช้ Navigator ได้
+      home: Headnavbar(), 
     );
   }
 }

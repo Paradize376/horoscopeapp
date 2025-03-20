@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horoscopeapp/headnavbar.dart';
 import 'package:horoscopeapp/dailyhoroscope.dart';
+
 class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class Homepage extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                            image: NetworkImage(
+                            image: AssetImage(
                               'assets/homepage/zodiac.png', // Placeholder image
                             ),
                             fit: BoxFit.cover,
@@ -42,15 +43,10 @@ class Homepage extends StatelessWidget {
                     ],
                   ),
                 ),
-               // Option 2: Daily Horoscope
+                // Option 2: Daily Horoscope
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DailyHoroscopePage(),
-                      ),
-                    );
+                    Headnavbar.of(context)?.changeTab(2);
                   },
                   child: Column(
                     children: [

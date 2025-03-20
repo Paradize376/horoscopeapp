@@ -7,18 +7,50 @@ class DailyHoroscope {
   final String finance; // การเงิน
   final String love; // ความรัก
 
-  DailyHoroscope({required this.career, required this.finance, required this.love});
+  DailyHoroscope({
+    required this.career,
+    required this.finance,
+    required this.love,
+  });
 }
 
 // Dataset คำทำนายที่สามารถสุ่มได้
 final List<DailyHoroscope> horoscopePool = [
-  DailyHoroscope(career: "มีโอกาสได้รับโปรเจคใหม่ แต่ต้องระวังความล่าช้า", finance: "รายจ่ายเยอะกว่าปกติ ควรวางแผนดีๆ", love: "คนโสดมีโอกาสพบคนถูกใจในที่ทำงาน"),
-  DailyHoroscope(career: "งานราบรื่น ผู้ใหญ่ให้การสนับสนุน", finance: "รายรับรายจ่ายสมดุล ควรออมเพิ่ม", love: "คนโสดอาจมีคนใกล้ตัวแอบชอบ"),
-  DailyHoroscope(career: "มีไอเดียใหม่ๆ ในงาน แต่ควรหาข้อมูลเพิ่มก่อนลงมือ", finance: "รายจ่ายไม่เยอะ แต่ควรเก็บออมให้มากขึ้น", love: "คนรักอาจต้องการกำลังใจจากคุณ"),
-  DailyHoroscope(career: "ระวังความขัดแย้งในที่ทำงาน", finance: "มีโชคด้านการเงิน", love: "คนรักต้องการกำลังใจจากคุณ"),
-  DailyHoroscope(career: "อาจต้องรับผิดชอบงานเพิ่มขึ้น แต่ส่งผลดีในระยะยาว", finance: "มีโอกาสได้รับของขวัญจากคนใกล้ตัว", love: "คู่รักควรปรับความเข้าใจกันมากขึ้น"),
-  DailyHoroscope(career: "มีโอกาสก้าวหน้าด้านงาน แต่ต้องอดทนรอจังหวะ", finance: "รายจ่ายเกี่ยวกับสุขภาพหรือยานพาหนะ", love: "คนโสดอาจพบรักผ่านโซเชียลมีเดีย"),
-  DailyHoroscope(career: "งานเข้มข้น ต้องมีสมาธิให้มาก", finance: "รายรับคงที่แต่มีแผนใช้เงินที่ดีขึ้น", love: "คู่รักควรให้เวลากันมากขึ้น"),
+  DailyHoroscope(
+    career: "มีโอกาสได้รับโปรเจคใหม่ แต่ต้องระวังความล่าช้า",
+    finance: "รายจ่ายเยอะกว่าปกติ ควรวางแผนดีๆ",
+    love: "คนโสดมีโอกาสพบคนถูกใจในที่ทำงาน",
+  ),
+  DailyHoroscope(
+    career: "งานราบรื่น ผู้ใหญ่ให้การสนับสนุน",
+    finance: "รายรับรายจ่ายสมดุล ควรออมเพิ่ม",
+    love: "คนโสดอาจมีคนใกล้ตัวแอบชอบ",
+  ),
+  DailyHoroscope(
+    career: "มีไอเดียใหม่ๆ ในงาน แต่ควรหาข้อมูลเพิ่มก่อนลงมือ",
+    finance: "รายจ่ายไม่เยอะ แต่ควรเก็บออมให้มากขึ้น",
+    love: "คนรักอาจต้องการกำลังใจจากคุณ",
+  ),
+  DailyHoroscope(
+    career: "ระวังความขัดแย้งในที่ทำงาน",
+    finance: "มีโชคด้านการเงิน",
+    love: "คนรักต้องการกำลังใจจากคุณ",
+  ),
+  DailyHoroscope(
+    career: "อาจต้องรับผิดชอบงานเพิ่มขึ้น แต่ส่งผลดีในระยะยาว",
+    finance: "มีโอกาสได้รับของขวัญจากคนใกล้ตัว",
+    love: "คู่รักควรปรับความเข้าใจกันมากขึ้น",
+  ),
+  DailyHoroscope(
+    career: "มีโอกาสก้าวหน้าด้านงาน แต่ต้องอดทนรอจังหวะ",
+    finance: "รายจ่ายเกี่ยวกับสุขภาพหรือยานพาหนะ",
+    love: "คนโสดอาจพบรักผ่านโซเชียลมีเดีย",
+  ),
+  DailyHoroscope(
+    career: "งานเข้มข้น ต้องมีสมาธิให้มาก",
+    finance: "รายรับคงที่แต่มีแผนใช้เงินที่ดีขึ้น",
+    love: "คู่รักควรให้เวลากันมากขึ้น",
+  ),
 ];
 
 // ฟังก์ชันสุ่มคำทำนาย
@@ -31,17 +63,15 @@ class DailyHoroscopePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple[800],
-        title: Text("ดูดวงวันนี้", style: TextStyle(color: Colors.white)),
-        centerTitle: true,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("สุ่มดวงวันนี้", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            Text(
+              "สุ่มดวงวันนี้",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
             SizedBox(height: 16),
             Expanded(
               child: GridView.count(
@@ -68,7 +98,9 @@ class DailyHoroscopePage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HoroscopeDetailPage(day: day.name, dayColor: day.color),
+                builder:
+                    (context) =>
+                        HoroscopeDetailPage(day: day.name, dayColor: day.color),
               ),
             );
           },
@@ -83,7 +115,11 @@ class DailyHoroscopePage extends StatelessWidget {
             child: Center(
               child: Text(
                 day.shortName,
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: day.color),
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: day.color,
+                ),
               ),
             ),
           ),
@@ -132,29 +168,59 @@ class HoroscopeDetailPage extends StatelessWidget {
             SizedBox(height: 16),
 
             // Card แสดงคำทำนาย
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-              color: Colors.white,
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("💼 การงาน", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: dayColor)),
-                    SizedBox(height: 5),
-                    Text(horoscope.career, style: TextStyle(fontSize: 16)),
-                    SizedBox(height: 16),
-
-                    Text("💰 การเงิน", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: dayColor)),
-                    SizedBox(height: 5),
-                    Text(horoscope.finance, style: TextStyle(fontSize: 16)),
-                    SizedBox(height: 16),
-
-                    Text("❤️ ความรัก", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: dayColor)),
-                    SizedBox(height: 5),
-                    Text(horoscope.love, style: TextStyle(fontSize: 16)),
-                  ],
+            Center(
+              child: Container(
+                width: 500, 
+                child: Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  color: Colors.white,
+                  child: Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "💼 การงาน",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: dayColor,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(horoscope.career, style: TextStyle(fontSize: 16)),
+                          SizedBox(height: 16),
+                    
+                          Text(
+                            "💰 การเงิน",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: dayColor,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(horoscope.finance, style: TextStyle(fontSize: 16)),
+                          SizedBox(height: 16),
+                    
+                          Text(
+                            "❤️ ความรัก",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: dayColor,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(horoscope.love, style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -176,17 +242,14 @@ class DayInfo {
 
 final List<DayInfo> days = [
   DayInfo(name: "อาทิตย์", shortName: "อา", color: Colors.red),
-  DayInfo(name: "จันทร์", shortName: "จ", color: Colors.yellow),
+  DayInfo(
+    name: "จันทร์",
+    shortName: "จ",
+    color: const Color.fromARGB(255, 231, 211, 31),
+  ),
   DayInfo(name: "อังคาร", shortName: "อ", color: Colors.pink),
   DayInfo(name: "พุธ", shortName: "พ", color: Colors.green),
   DayInfo(name: "พฤหัสบดี", shortName: "พฤ", color: Colors.orange),
   DayInfo(name: "ศุกร์", shortName: "ศ", color: Colors.blue),
   DayInfo(name: "เสาร์", shortName: "ส", color: Colors.purple),
 ];
-
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: DailyHoroscopePage(),
-  ));
-}

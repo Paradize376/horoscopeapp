@@ -327,8 +327,7 @@ class _ZodiacPredictionPageState extends State<ZodiacPredictionPage> {
             ),
           ),
           const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 260.0),
+          Center(
             child: ElevatedButton(
               onPressed: _submitForm,
               style: ElevatedButton.styleFrom(

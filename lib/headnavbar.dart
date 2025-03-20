@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:horoscopeapp/dailyhoroscope.dart';
 import 'zodiac_prediction_page.dart';
 import 'result_prediction_page.dart';
 import 'homepage.dart';
@@ -21,13 +22,13 @@ class _HeadnavbarState extends State<Headnavbar> {
   Map<String, dynamic>? _predictionData;
 
   // ชื่อหัวข้อของแต่ละหน้า
-  final List<String> _titles = ['หน้าหลัก', 'ทำนายราศี', 'ดูดวงรายวัน'];
+  final List<String> _titles = ['หน้าหลัก', 'ทำนายราศี', 'ดูดวงรายวัน',];
 
   // รายการหน้าที่จะสลับ
   final List<Widget> _screens = [
     Homepage(),
     ZodiacPredictionPage(),
-    // DailyHoroscopePage(), // เพิ่มหน้า ดูดวงรายวัน
+    DailyHoroscopePage(), // เพิ่มหน้า ดูดวงรายวัน
   ];
 
   // ฟังก์ชันเปลี่ยนแท็บ
