@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horoscopeapp/headnavbar.dart';
-
+import 'package:horoscopeapp/dailyhoroscope.dart';
 class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -42,10 +42,15 @@ class Homepage extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Option 2: Daily Horoscope
+               // Option 2: Daily Horoscope
                 InkWell(
                   onTap: () {
-                    Headnavbar.of(context)?.changeTab(2);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DailyHoroscopePage(),
+                      ),
+                    );
                   },
                   child: Column(
                     children: [
@@ -56,7 +61,7 @@ class Homepage extends StatelessWidget {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: AssetImage(
-                              'homepage/daily.jpg', // Placeholder image
+                              'assets/homepage/daily.jpg', // เปลี่ยน Path ให้ถูกต้อง
                             ),
                             fit: BoxFit.cover,
                           ),
